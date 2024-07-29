@@ -1,0 +1,81 @@
+SELECT TOP (1000) [EmployeeID]
+      ,[FullName]
+      ,[DeptID]
+      ,[Salary]
+      ,[HireDate]
+      ,[ManagerID]
+  FROM [MyDB].[dbo].[Employees]
+
+
+  alter trigger trg_emp_audit
+  on employee
+  after insert ,delete
+  as begin
+  insert into employee_audit
+  select Employee_ID,'INS',GETDATE()
+from inserted
+
+union all
+select Employee_ID,'DEL',GETDATE()
+from deleted
+  end 
+
+
+  create table employee_audit(
+  Employee_ID int,
+  Operation varchar(10),
+  UpdateDate DateTime
+  )
+
+    create table employee(
+  Employee_ID int,
+  Operation varchar(10),
+  UpdateDate DateTime
+  )
+
+  insert into  employee
+  values(110,'sam',2024-20-5)
+
+  select top 100* from employee_audit
+
+
+  delete from employee where Employee_ID ='101'
+
+
+  select * into employee_Copy from employee
+
+  alter table employee_Copy  
+  add active bit
+
+  alter table employee_Copy  
+  add EndDate datetime
+
+  select * from employee_Copy
+
+
+
+DELETE FROM employee_Copy
+WHERE employee_id = 106;
+
+
+ALTER trigger trg_emp_audit1
+ on employee_Copy
+ after insert,delete
+ as
+ begin
+UPDATE employee_Copy
+SET  active = 0 ,EndDate =   CAST(GETDATE() AS DATE) 
+WHERE employee_id = Employee_ID;
+ end 
+
+ create trigger trp_del
+ on employee_Copy
+ instead of delete
+ as begin
+ UPDATE employee_Copy
+SET  active = 1 ,EndDate =GETDATE() 
+WHERE Employee_ID in (select Employee_ID from deleted);
+ end
+
+
+

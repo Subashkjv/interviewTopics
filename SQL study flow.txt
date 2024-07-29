@@ -1,0 +1,104 @@
+1. Introduction to SQL Server
+Overview and architecture
+Editions and versions
+Installation and configuration
+
+2. Database Design and Architecture
+Databases and tables
+Primary keys, foreign keys, and constraints
+Indexing (clustered and non-clustered indexes)
+Normalization and denormalization
+Schema design and data types
+
+3. SQL Basics
+SELECT statements
+WHERE clause and filtering
+JOIN operations (INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL JOIN)
+GROUP BY and aggregation functions (COUNT, SUM, AVG, etc.)
+ORDER BY clause
+
+4. Advanced SQL Queries
+Subqueries and nested queries
+Common Table Expressions (CTEs)
+Window functions (ROW_NUMBER, RANK, LEAD, LAG, etc.)
+Pivot and Unpivot
+
+5. Stored Procedures and Functions
+Creating and managing stored procedures
+User-defined functions (scalar and table-valued)
+Error handling with TRY...CATCH
+Dynamic SQL
+
+6. Triggers and Views
+Creating and managing triggers (AFTER, INSTEAD OF, etc.)
+Creating and managing views
+Updatable vs. non-updatable views
+
+7. Transactions and Concurrency
+Transaction control (BEGIN TRANSACTION, COMMIT, ROLLBACK)
+Isolation levels and locking mechanisms
+Handling deadlocks and concurrency issues
+
+8. Security
+Authentication and authorization
+Roles and permissions
+Encryption (Transparent Data Encryption, column-level encryption)
+Auditing and compliance
+
+9. Performance Tuning and Optimization
+Query optimization and execution plans
+Index tuning and maintenance
+Statistics and performance counters
+Database maintenance tasks (reindexing, updating statistics)
+
+10. Backup and Recovery
+Backup strategies (full, differential, transaction log backups)
+Restoring databases (full restore, point-in-time recovery)
+Backup compression and encryption
+
+11. Replication and High Availability
+SQL Server replication (snapshot, transactional, merge replication)
+Always On Availability Groups
+Database Mirroring
+Log Shipping
+
+12. Integration Services (SSIS)
+Data extraction, transformation, and loading (ETL)
+Creating and managing SSIS packages
+Data flow tasks and control flow tasks
+
+13. Analysis Services (SSAS)
+Data warehousing and multidimensional models
+Creating and managing OLAP cubes
+Data mining and analysis
+
+14. Reporting Services (SSRS)
+Creating and managing reports
+Report design and formatting
+Data sources and datasets
+Report deployment and scheduling
+
+15. Management Tools
+SQL Server Management Studio (SSMS)
+SQL Server Profiler and Extended Events
+SQL Server Data Tools (SSDT)
+Azure Data Studio
+
+16. Cloud and Hybrid Solutions
+SQL Server on Azure Virtual Machines
+Azure SQL Database and Azure SQL Managed Instance
+Hybrid cloud scenarios and data migration
+
+17. Scripting and Automation
+Using SQLCMD and PowerShell for automation
+Writing and scheduling SQL Server Agent jobs
+
+18. Best Practices
+Coding standards and conventions
+Data modeling best practices
+Regular maintenance and monitoring
+
+19. Troubleshooting and Diagnostics
+Performance troubleshooting
+Error logs and diagnostic tools
+Query execution plan analysis

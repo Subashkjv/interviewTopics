@@ -1,0 +1,18 @@
+ .Net 4.6
+Web Api
+Type Script
+C#
+Solid Principle
+
+
+Kathiresh Tech  --> Web API
+JVL Code --> React JS
+Cheetah Media ---> React JS Type Script
+Codebinx --> typeScript
+TSXpert ---> react with typscript
+anto sujesh ---> MVC
+
+Microsoft.EntityFrameWorkCore ---Dbcontext ,dbset
+Microsoft.EntityFrameWorkCore.Tool --- migration,scaffold
+Microsoft.EntityFrameWorkCore.design --- design component
+SQL Server --- For SQL server

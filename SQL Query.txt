@@ -1,0 +1,32 @@
+  select top 100 * from Employees
+
+
+  select EmployeeID,EMP.DeptID,Salary
+  from Employees EMP inner join
+
+( select DeptID,max(Salary) AS maxsalary from Employees group By DeptID) AS EMP1 ON EMP.DeptID = EMP1.DeptID
+AND EMP.Salary = maxsalary
+
+select EmployeeID,DeptID,Salary,
+RANK()OVER(PARTITION BY DeptID ORDER BY  Salary desc) as SALA
+from Employees
+
+
+select EmployeeID,DeptID,Salary from(
+
+select EmployeeID,DeptID,Salary,
+RANK()OVER(PARTITION BY DeptID ORDER BY  Salary desc) as SALA
+from Employees) as emp
+where SALA =1
+------------------------------------------------------------------------------
+
+MERGE  TABLE1 AS name1
+USING  TABLE2 AS name2
+on (name1.id =name2.id)
+WHEN MATCHED
+  THEN UPDATE 
+  SET name1.PRICE =name2.PRICE
+WHEN NOT MATCHED
+
+THEN INSERT (ID,NAME,PRICE)
+VALUES(name2.ID,name2.NAME,name2.PRICE)

@@ -1,0 +1,101 @@
+
+select * from employee
+
+exec sp_executesql N'select * from employee'
+
+declare @sql NVARCHAR(MAX)
+declare @emp_id int
+set @emp_id= 109
+set @sql = 'select * from employee where Employee_ID =' + cast (@emp_id as varchar)
+select @sql
+exec sp_executesql @sql
+
+
+declare @sql NVARCHAR(MAX)
+declare @Column VARCHAR(50)
+declare @Name VARCHAR(50)
+set @Name= '''sam'''
+set @Column= 'Employee_ID'
+set @sql = 'select '+ @Column +' from employee where Operation =' + @Name
+select @sql
+exec sp_executesql @sql
+
+
+create table	sales(
+product varchar(50),
+region varchar(50),
+ amount int
+
+)
+SELECT * from Sales
+select * from (
+
+select * from sales
+) as source
+pivot(
+sum (amount) for region in ([North],[South],[east],[west])
+)As pivot_table
+
+select * from (
+
+select * from Sales_report
+) as source
+unpivot(
+amount for region in ([North],[South],[east],[west])
+)As unpivot_table
+
+
+select * from Sales_report
+
+
+drop table Sales_report
+
+
+SELECT *
+INTO Sales_report
+FROM  (
+
+select * from sales
+) as source
+pivot(
+sum (amount) for region in ([North],[South],[east],[west])
+)As pivot_table
+
+--------------------------------------------------
+interview question
+-----
+SELECT * INTO Sales_report
+ 
+FROM sales where 1=2;
+
+
+select null +'as'
+  
+  
+
+    select 'as'+'' +'as'
+
+	select 'as'+null +'as'
+	select CONCAT('as',null,'as')
+---------------------------------------------------------------------
+
+
+select distinct quotename(region) from sales
+
+Declare @sqls NVARCHAR(MAX)
+Declare @columns NVARCHAR(MAX)
+
+select @columns =   coalesce(@columns+',','')+ quotename(region) from( select distinct region from sales )as regions
+select @columns 
+
+
+set @sqls='
+select * from (
+
+select * from sales
+) as source
+pivot(
+sum (amount) for region in ('+@columns+')
+)As pivot_table'
+
+exec sp_executesql @sqls
